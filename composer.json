@@ -1,0 +1,22 @@
+{
+    "name": "h2w/module-fretebarato",
+    "description": "",
+    "type": "magento2-module",
+    "license": "proprietary",
+    "authors": [
+        {
+            "email": "bruno@fretebarato.com",
+            "name": "Bruno Henrique"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "H2w\\Fretebarato\\": ""
+        }
+    }
+}

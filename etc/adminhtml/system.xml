@@ -1,0 +1,88 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+		<section id="carriers" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="1000" translate="label">
+			<group id="fretebarato" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+				<label>FRETE BARATO</label>
+				<field id="active" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+					<label>Enabled</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="title" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label" type="text">
+					<label>Method Title</label>
+				</field>
+
+
+				<field id="accessTaxvat" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label" type="text">
+					<label>Access Taxvat</label>
+					<tooltip>Company Taxvat</tooltip>
+				</field>
+
+
+				<field id="restCotationUrl" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label" type="text">
+					<label>Cotation Web Service URL</label>
+					<tooltip>Request this information to suporte@fretebarato.com.br</tooltip>
+				</field>
+				<field id="restPostbackUrl" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label" type="text">
+					<label>Post Back Web Service URL</label>
+					<tooltip>Request this information to suporte@fretebarato.com.br</tooltip>
+				</field>
+				<field id="accessToken" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label" type="text">
+					<label>Access Token</label>
+					<tooltip>Request this information to suporte@fretebarato.com.br</tooltip>
+				</field>
+				<field id="platformName" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label" type="text">
+					<label>Platform Name</label>
+					<tooltip>Request this information to suporte@fretebarato.com.br</tooltip>
+				</field>
+
+
+				<field id="heightAttribute" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label" type="text">
+					<label>Height Attribute Code</label>
+					<tooltip>Height attribute code used in product configuration</tooltip>
+				</field>
+				<field id="widthAttribute" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label" type="text">
+					<label>Width Attribute Code</label>
+					<tooltip>Width attribute code used in product configuration</tooltip>
+				</field>
+				<field id="lengthAttribute" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label" type="text">
+					<label>Length Attribute Code</label>
+					<tooltip>Length attribute code used in product configuration</tooltip>
+				</field>
+				<field id="weightAttribute" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label" type="text">
+					<label>Weight Attribute Code</label>
+					<tooltip>Weight attribute code used in product configuration</tooltip>
+				</field>
+
+
+				<field id="sizeUnit" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label" type="select">
+					<label>Size Unit</label>
+					<tooltip>Size unit used in store</tooltip>
+					<source_model>H2w\Fretebarato\Model\Config\Source\Sizeunit</source_model>
+				</field>
+				<field id="weightUnit" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label" type="select">
+					<label>Weight Unit</label>
+					<tooltip>Weight unit used in store</tooltip>
+					<source_model>H2w\Fretebarato\Model\Config\Source\Weightunit</source_model>
+				</field>
+
+
+				<field id="displayOrder" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label" type="select">
+					<label>Display Order</label>
+					<tooltip>Select the order of information displayed on frontend</tooltip>
+					<source_model>H2w\Fretebarato\Model\Config\Source\Displayorder</source_model>
+				</field>
+
+
+				<field id="defaultShippingDeadline" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label" type="text">
+					<label>Default Shipping Deadline</label>
+					<tooltip>Number of days to use when deadline returns null</tooltip>
+				</field>
+				<field id="msgShippingDeadline" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label" type="text">
+					<label>Deadline Message</label>
+					<tooltip>Message to Display for Shipping Deadline</tooltip>
+				</field>
+			</group>
+		</section>
+	</system>
+</config>

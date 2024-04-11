@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+	<default>
+		<carriers>
+			<fretebarato>
+				<model>H2w\Fretebarato\Model\Carrier\Fretebarato</model>
+				<sallowspecific>1</sallowspecific>
+				<specificcountry>BR</specificcountry>
+
+				<active>1</active>
+				<title>FRETE BARATO</title>
+
+				<platformName>Magento 2.4.2</platformName>
+
+				<heightAttribute>ts_dimensions_height</heightAttribute>
+				<widthAttribute>ts_dimensions_width</widthAttribute>
+				<lengthAttribute>ts_dimensions_length</lengthAttribute>
+				<weightAttribute>weight</weightAttribute>
+
+				<displayOrder>0</displayOrder>
+
+				<weightUnit>kg</weightUnit>
+				<sizeUnit>cm</sizeUnit>
+				<defaultShippingDeadline>15</defaultShippingDeadline>
+				<msgShippingDeadline>(Entrega em %s dias úteis)</msgShippingDeadline>
+			</fretebarato>
+		</carriers>
+	</default>
+</config>

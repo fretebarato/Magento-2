@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+	<event name="sales_order_place_after">
+		<observer instance="H2w\Fretebarato\Observer\Sales\Order\PlaceAfter" name="h2w_fretebarato_observer_sales_order_placeafter"/>
+	</event>
+</config>
