@@ -59,30 +59,31 @@ class Fretebarato extends \Magento\Shipping\Model\Carrier\AbstractCarrier implem
             $additionalInformation = $this->helperData->prepareAdditionalInformation();
             $wsResults             = $this->helperApi->callCotationWebservice($request->getDestPostcode(), $productsList, $additionalInformation);
 
-            if ((int) $wsResults['codigo_retorno'] !== 1) {
-                throw new Exception($wsResults['data'], $wsResults['codigo_retorno']);
+            if ($wsResults->error) {
+                throw new Exception($wsResults->message, $wsResults->code);
             }
 
 			$deadlineMessage = trim($this->scopeConfig->getValue('carriers/fretebarato/msgShippingDeadline', $storeScope));
             $methodsResults  = $this->_rateResultFactory->create();
 
-			foreach($wsResults['data'] as $shippingMethod) {
-                $prazoExibicao = $definePrazoExibicao($shippingMethod);
-                $valorExibicao = $defineValorExibicao($shippingMethod);
+			foreach($wsResults->quotes as $shippingMethod) {
+                // $prazoExibicao = $definePrazoExibicao($shippingMethod);
+                // $valorExibicao = $defineValorExibicao($shippingMethod);
 
                 $method = $this->_rateMethodFactory->create();
 				$method->setCarrier($this->_code); // Keep it like this
-                $method->setPrice($valorExibicao);
-				$method->setCost($valorExibicao);
+                $method->setPrice($shippingMethod->price);
+				$method->setCost($shippingMethod->price);
 
 				$method->setCarrierTitle($this->scopeConfig->getValue('carriers/fretebarato/title', $storeScope));
-				$method->setMethodTitle($shippingMethod['descricao']);
+				$method->setMethodTitle($shippingMethod->name);
 
                 if (isset($deadlineMessage)) {
-                    $method->setMethodTitle($method->getMethodTitle() . ' ' . sprintf($deadlineMessage, (string) $prazoExibicao));
+                    $method->setMethodTitle($method->getMethodTitle() . ' ' . sprintf($deadlineMessage, (string) $shippingMethod->days));
                 }
 
-				$method->setMethod($this->helperData->buildShippingMethodName($shippingMethod['descricao']). '<h2w>' .$shippingMethod['cod_tabela']. '<h2w>' .$wsResults['CotacaoId']);
+				$method->setMethod($this->helperData->buildShippingMethodName($shippingMethod->name). '<h2w>' .$shippingMethod->quote_id. '<h2w>');
+				// $method->setMethod($this->helperData->buildShippingMethodName($shippingMethod->name). '<h2w>' .$shippingMethod->quote_id. '<h2w>' .$wsResults['CotacaoId']);
 				$methodsResults->append($method);
 			}
 
